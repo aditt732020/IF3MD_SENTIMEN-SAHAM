@@ -22,7 +22,7 @@
             <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">Log Sentimen</a>
         </nav>
     </aside>
-
+    
     <!-- Main Content -->
     <main class="flex-1 flex flex-col h-full overflow-hidden">
         
@@ -46,30 +46,32 @@
                     <h2 class="font-bold text-gray-800">Live News Stream</h2>
                     <p class="text-xs text-gray-500">Menunggu antrean analisis AI</p>
                 </div>
+
                 <div class="flex-1 overflow-y-auto p-4 space-y-4">
                     
-                    <!-- Kartu Berita 1 (Aktif) -->
-                    <div class="p-4 rounded-lg border-2 border-green-500 bg-green-50 cursor-pointer">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-[10px] font-bold px-2 py-1 bg-green-200 text-green-800 rounded uppercase">Analyzed</span>
-                            <span class="text-xs text-gray-500">10 mnt lalu</span>
-                        </div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Kredit Konsumsi Bank Besar Tembus Rekor di Kuartal III</h3>
-                        <p class="text-xs text-gray-600">Bisnis.com - Pertumbuhan penyaluran kredit perbankan mencatatkan angka positif...</p>
-                    </div>
-
-                    <!-- Kartu Berita 2 -->
+                    <!-- Looping Data Berita dari Database -->
+                    @foreach($daftar_berita as $berita)
                     <div class="p-4 rounded-lg border border-gray-200 hover:border-green-300 hover:bg-gray-50 cursor-pointer transition">
                         <div class="flex justify-between items-start mb-2">
-                            <span class="text-[10px] font-bold px-2 py-1 bg-gray-200 text-gray-600 rounded uppercase">Pending</span>
-                            <span class="text-xs text-gray-500">45 mnt lalu</span>
+                            
+                            <!-- Label Warna Dinamis Hasil Analisis AI -->
+                            @if($berita->label_ai == 'Positif')
+                                <span class="text-[10px] font-bold px-2 py-1 bg-green-200 text-green-800 rounded uppercase">Positif</span>
+                            @elseif($berita->label_ai == 'Negatif')
+                                <span class="text-[10px] font-bold px-2 py-1 bg-red-200 text-red-800 rounded uppercase">Negatif</span>
+                            @else
+                                <span class="text-[10px] font-bold px-2 py-1 bg-gray-200 text-gray-800 rounded uppercase">{{ $berita->label_ai }}</span>
+                            @endif
+                            
+                            <span class="text-xs text-gray-500">{{ $berita->created_at ? $berita->created_at->diffForHumans() : 'Baru saja' }}</span>
                         </div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Regulasi Baru Pajak Digital Diterapkan Bulan Depan</h3>
-                        <p class="text-xs text-gray-600">Kontan.co.id - Pemerintah resmi mengumumkan penyesuaian tarif pajak untuk layanan...</p>
+                        
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">{{ $berita->judul }}</h3>
+                        <p class="text-xs text-gray-600">{{ \Illuminate\Support\Str::limit($berita->isi_berita, 80) }}</p>
                     </div>
+                    @endforeach
 
                 </div>
-            </div>
 
             <!-- Kolom Kanan: AI Impact Analysis -->
             <div class="w-7/12 bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col h-full">
