@@ -41,7 +41,7 @@
         <div class="flex-1 p-6 flex gap-6 overflow-hidden">
             
             <!-- Kolom Kiri: News Stream -->
-            <div class="w-5/12 bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col h-full">
+            <div class="w-4/12 bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col h-full overflow-hidden">
                 <div class="p-4 border-b border-gray-200 bg-gray-50 rounded-t-xl">
                     <h2 class="font-bold text-gray-800">Live News Stream</h2>
                     <p class="text-xs text-gray-500">Menunggu antrean analisis AI</p>
@@ -72,9 +72,10 @@
                     @endforeach
 
                 </div>
-
+            </div>
+            
             <!-- Kolom Kanan: AI Impact Analysis -->
-            <div class="w-7/12 bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col h-full">
+            <div class="w-8/12 bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col h-full overflow-hidden">
                 <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50 rounded-t-xl">
                     <h2 class="font-bold text-gray-800">AI Impact Analysis</h2>
                     <span class="text-xs text-gray-500 flex items-center">
