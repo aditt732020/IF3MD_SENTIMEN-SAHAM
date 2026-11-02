@@ -1238,17 +1238,6 @@
         </div>
     </div>
 
-    {{-- Role Switcher (FR-02) --}}
-    <div class="role-switch">
-        @auth
-            <button class="role-btn {{ Auth::user()->role === 'admin' ? 'active' : '' }}">Admin</button>
-            <button class="role-btn {{ Auth::user()->role === 'visitor' ? 'active' : '' }}">Visitor</button>
-        @else
-            <button class="role-btn">Admin</button>
-            <button class="role-btn active">Visitor</button>
-        @endauth
-    </div>
-
     {{-- Notification --}}
     <div class="topbar-notif">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1336,14 +1325,6 @@
     {{-- ===== MAIN CONTENT ===== --}}
     <main class="main-content">
 
-        {{-- Breadcrumb --}}
-        <div class="breadcrumb">
-            <span class="breadcrumb-item">Admin_Sys</span>
-            <span class="breadcrumb-sep">›</span>
-            <span class="breadcrumb-item">Dashboard_Overview</span>
-            <span class="breadcrumb-sep">›</span>
-            <span class="breadcrumb-item current">AI Impact Radar</span>
-        </div>
 
         {{-- Scrollable content --}}
         <div class="content-scroll">
@@ -1358,10 +1339,6 @@
                             Live Analysis
                         </span>
                     </div>
-                    <p class="page-desc">
-                        Pemantauan real-time sentimen berita pasar terhadap emiten saham Indonesia.
-                        Data diperbarui otomatis melalui pipeline AI setiap batch harian.
-                    </p>
                 </div>
                 <div class="page-header-right">
                     <div class="schedule-info">
@@ -1383,38 +1360,6 @@
                 </div>
             </div>
 
-            {{-- Stream Endpoints --}}
-            <div class="endpoints-bar">
-                <div class="endpoint-item">
-                    <span class="endpoint-dot green"></span>
-                    <span>RSS/Scraper Engine <span style="color:var(--text-dim)"></span></span>
-                    <span class="endpoint-pct">99.0%</span>
-                </div>
-                <div class="endpoint-sep"></div>
-                <div class="endpoint-item">
-                    <span class="endpoint-dot green"></span>
-                    <span>Yahoo/IDX Financial Feed <span style="color:var(--text-dim)"></span></span>
-                    <span class="endpoint-pct">102%</span>
-                </div>
-                <div class="endpoint-sep"></div>
-                <div class="endpoint-item">
-                    <span class="endpoint-dot blue"></span>
-                    <span>Queue Redis</span>
-                    <span style="color:var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size:0.65rem;">0 lag</span>
-                </div>
-                <div class="endpoint-sep"></div>
-                <div class="endpoint-item">
-                    <span style="color:var(--text-dim); font-size:0.65rem;">Sync Target:</span>
-                    <span style="color:var(--text-white); font-size:0.65rem; font-weight:600; font-family:'JetBrains Mono',monospace;">POSTGRES_DB_PROD</span>
-                </div>
-                <div class="endpoint-ssl">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>
-                    SSL ENCRYPTED
-                </div>
-            </div>
 
             {{-- FR-09: Metric Cards --}}
             <div class="metrics-grid">
@@ -1528,15 +1473,10 @@
                 {{-- Sub-Process Card --}}
                 <div class="subproc-card">
                     <div class="subproc-header">
-                        <span class="subproc-tag">Sub-Process Architecture</span>
-                        <span class="daemon-id">DAEMON ID: CRON_JOB_SYS_01</span>
+                        <span class="subproc-tag">Live News Stream & Analisis Sentimen AI</span>
                     </div>
                     <div class="subproc-body">
-                        <div class="subproc-title">Live News Stream & Analisis Sentimen AI</div>
-                        <div class="subproc-desc">
-                            Menampilkan berita terkini yang sudah diindeks dan dianalisis oleh AI pipeline.
-                            Klik berita untuk melihat detail dampak pada emiten terkait.
-                        </div>
+                        <div class="subproc-title"></div>
 
                         {{-- Pipeline Sources --}}
                         <div class="pipeline-grid">
@@ -1672,7 +1612,6 @@
                             </div>
                         </div>
 
-                        <div class="jadwal-cron">Cron Spec: <strong>0 8,12,18 * * *</strong></div>
 
                         {{-- Mini log table (FR-04) --}}
                         <div style="margin-top:0.5rem;">

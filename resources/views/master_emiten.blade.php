@@ -25,10 +25,6 @@
         <div class="page-title-row">
             <h1 class="page-title">Master Data Emiten</h1>
         </div>
-        <p class="page-desc">
-            Kelola daftar kode saham (emiten) Indonesia yang dipantau oleh sistem penarikan harga Yahoo Finance
-            dan pencocokan berita RSS otomatis.
-        </p>
     </div>
     @if(!$isAdmin)
         <a href="{{ route('login') }}" class="btn-accent">Login sebagai Admin untuk Kelola Data</a>
@@ -40,7 +36,6 @@
     <div class="card-panel">
         <div class="card-panel-title">
             <span>Tambah Emiten Baru</span>
-            <span style="font-size:0.68rem; color:var(--accent);">Mode Administrator Aktif ({{ Auth::user()->name }})</span>
         </div>
         <form action="{{ route('master.emiten.store') }}" method="POST">
             @csrf

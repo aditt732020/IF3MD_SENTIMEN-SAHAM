@@ -282,16 +282,6 @@
         </div>
     </div>
 
-    <div class="role-switch">
-        @auth
-            <button class="role-btn {{ Auth::user()->role === 'admin' ? 'active' : '' }}">Admin</button>
-            <button class="role-btn {{ Auth::user()->role === 'visitor' ? 'active' : '' }}">Visitor</button>
-        @else
-            <button class="role-btn">Admin</button>
-            <button class="role-btn active">Visitor</button>
-        @endauth
-    </div>
-
     <div class="topbar-user">
         <div class="avatar">{{ Auth::check() ? strtoupper(substr(Auth::user()->name, 0, 1)) : 'V' }}</div>
         <div class="user-info">
