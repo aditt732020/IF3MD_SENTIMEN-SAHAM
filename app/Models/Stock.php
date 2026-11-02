@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model
 {
-    protected $fillable = ['ticker_code', 'company_name', 'sector'];
+    protected $fillable = ['ticker_code', 'company_name', 'sector', 'keywords'];
 
     // Satu emiten saham memiliki banyak riwayat harga
     public function stockPrices()

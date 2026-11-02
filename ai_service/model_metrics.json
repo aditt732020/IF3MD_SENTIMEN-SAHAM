@@ -1,0 +1,23 @@
+{
+  "model": "LogisticRegression",
+  "trained_at": "2026-11-02T12:56:30",
+  "sklearn_version": "1.9.0",
+  "dataset": "indFinsent.jsonl",
+  "n_samples": 1382,
+  "label_distribution": {
+    "Positif": 729,
+    "Netral": 361,
+    "Negatif": 292
+  },
+  "cv_macro_f1": {
+    "ComplementNB": 0.7014,
+    "LogisticRegression": 0.7252
+  },
+  "test_accuracy": 0.7473,
+  "test_macro_f1": 0.7384,
+  "classes": [
+    "Negatif",
+    "Netral",
+    "Positif"
+  ]
+}
