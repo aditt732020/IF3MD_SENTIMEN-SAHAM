@@ -67,6 +67,8 @@
     @endforeach
 </div>
 
+@include('partials.disclaimer')
+
 @if($selectedStock)
     @php
         $latestPrice = $prices->last();

@@ -1361,6 +1361,9 @@
             </div>
 
 
+            {{-- Disclaimer hasil AI --}}
+            @include('partials.disclaimer')
+
             {{-- FR-09: Metric Cards --}}
             <div class="metrics-grid">
 
